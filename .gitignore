@@ -1,8 +1,5 @@
 # ignore all
-/*
 # ignore dotfiles
-/.*
-
-!/src
+/*
+.*
 !/.ssh/config
-
