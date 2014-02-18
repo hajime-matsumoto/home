@@ -1,2 +1,5 @@
+# install gitflow
+wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bash
+
 # get gitflow-installer.sh
 wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh > gitflow-installer
