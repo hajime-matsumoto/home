@@ -11,3 +11,9 @@
 !.zshrc
 !.zshenv
 !.zsh/
+
+# for vim
+!.vimrc
+!.vim/
+!/src
+!/src/neobundle
