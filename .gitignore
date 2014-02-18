@@ -10,3 +10,4 @@
 # for zsh
 !.zshrc
 !.zshenv
+!.zsh/

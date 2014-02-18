@@ -85,3 +85,6 @@ function cd() {
     builtin cd $@ && ls;
 }
 
+# add
+source ~/.zsh/gitflow-completion.sh
+
