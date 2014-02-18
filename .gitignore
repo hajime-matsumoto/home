@@ -1,7 +1,13 @@
 # ignore all
-# ignore dotfiles
 /*
 /.*
+
+#  in .ssh
 !/.ssh
 /.ssh/*
 !/.ssh/config
+
+# for zsh
+!.zshrc
+!.zshenv
+!.zsh/

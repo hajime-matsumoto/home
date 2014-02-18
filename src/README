@@ -3,3 +3,7 @@ wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/
 
 # get gitflow-installer.sh
 wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh > gitflow-installer
+
+wget -O .zsh/gitflow-completion.sh https://raw.github.com/bobthecow/git-flow-completion/master/git-flow-completion.bash 
+
+git clone https://github.com/bobthecow/git-flow-completion.git
