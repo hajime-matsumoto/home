@@ -3,3 +3,6 @@
 # ignore dotfiles
 /.*
 
+!/src
+!/.ssh/config
+
