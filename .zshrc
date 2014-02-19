@@ -59,14 +59,14 @@ zstyle ':vcs_info:*' formats ':(%s)%b'
 zstyle ':vcs_info:*' actionformats ':(%s)%b|%a'
 
 
-PROMPT="[%n@%m:%d %T]$([ -n "$TMUX" ] && tmux display -p "#I-#P ")"
-PROMPT+="%F{gre%1(v|%F{green}%1v%f|)"
+PROMPT="[%n@%m:%d %T]$([ -n "$TMUX" ] && echo "[tmux:$(tmux display -p "#I:#P")] ")"
+PROMPT+="%1(v|%F{green}%1v%f|)"
 PROMPT+="
  %(?!(._.)/!(;_;%)?) "
-RPROMPT="[%~]"
+#RPROMPT="[%~]"
 
 case "${TERM}" in
-kterm*|xterm*)
+kterm*|xterm*|screen)
 	precmd() {
 		echo -ne "\033]0;${USER}@${HOST%%_.*}:${PWD}\007"
 		psvar=()

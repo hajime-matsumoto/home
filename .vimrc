@@ -197,10 +197,10 @@ autocmd FileType unite call s:unite_my_settings()
 function s:unite_my_settings() 
     nmap <buffer> <ESC> <Plug>(unite_exit)
     imap <buffer> jj <Plug>(unite_insert_leave)
-    nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-    inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-    nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-    inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+    nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+    inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+    nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+    inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
 endfunction
 
 
