@@ -217,11 +217,6 @@ nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35
 
 NeoBundle 'Shougo/vimproc',{'build': {'unix': 'make -f make_unix.mak'}}
 NeoBundle 'Shougo/vimshell' " {{{
-    function! s:complete_history()
-        call complete(len(vimshell#get_prompt()) + 1, g:vimshell#hist_buffer)
-        return ''
-    endfunction
-    inoremap <buffer> <silent> <C-l> <C-r>=<SID>complete_history()<CR><C-p>
 "}}}
 
 NeoBundle 'Shougo/neocomplete' " {{{
@@ -240,7 +235,8 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ 'scheme' : $HOME.'/.gosh_completions',
+	\ 'php' : '~/src/dict/php.dict'
         \ }
 
 " Define keyword.
