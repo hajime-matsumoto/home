@@ -1,0 +1,26 @@
+# ignore all
+/*
+/.*
+
+#  in .ssh
+!/.ssh
+/.ssh/*
+!/.ssh/config
+
+# for zsh
+!.zshrc
+!.zshenv
+!.zsh/
+
+# for vim
+!.vimrc
+!.vim/
+.vim/*
+!.vim/snippets/
+
+!src
+src/*
+!src/README
+!src/neobundle
+
+
