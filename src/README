@@ -9,3 +9,30 @@ git clone https://github.com/bobthecow/git-flow-completion.git
 # form vim shell
 cd ~/.vim/bundle/vimproc
 make -f make_unix.mak
+
+# compile vim
+#
+# if full
+sudo apt-get install mercurial gettext libncurses5-dev libxmu-dev libgtk2.0-dev libperl-dev python-dev python3-dev ruby-dev tcl-dev
+# only
+sudo apt-get install liblua5.1-0-dev liblua5.2-dev luajit
+hg clone https://vim.googlecode.com/hg/ vim
+  
+vimshell% ./configure --enable-multibyte --enable-rubyinterp --enable-pythoninterp --enable-python3interp  --enable-luainterp  --with-lua-prefix=/usr  --enable-perlinterp  --enable-tclinterp  --enable-mzschemeinterp  --enable-gpm  --enable-cscope --enable-fontset --prefix=$HOME/local"$*"
+
+# sample config
+./configure \
+        --with-features=huge \
+        --enable-multibyte \
+        --enable-gui=gtk2 \
+        --enable-perlinterp \
+        --enable-pythoninterp \
+        --with-python-config-dir=/usr/lib/python2.7/config \
+        --enable-rubyinterp \
+        --enable-tclinterp \
+        --enable-luainterp=dynamic \
+        --with-lua-prefix=/usr \
+        --enable-gpm \
+        --enable-cscope \
+        --enable-fontset \
+        --enable-fail-if-missing
