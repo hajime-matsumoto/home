@@ -1,7 +1,0 @@
-*
-.*
-!README
-!gitflow-installer.sh
-!git-flow-completion
-git-flow-completion/*
-!git-flow-completion/git-flow-completion.zsh

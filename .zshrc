@@ -7,8 +7,8 @@
 #
 
 export EDITOR=vim # Editor is vim
-export LANG=ja_JP.URF8 # japanese
-export KCODE=u # KanjiCode is UTF8
+#export LANG=ja_JP.URF8 # japanese
+#export KCODE=u # KanjiCode is UTF8
 
 
 bindkey -v # key binding as vi style
