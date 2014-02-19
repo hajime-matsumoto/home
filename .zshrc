@@ -60,7 +60,7 @@ zstyle ':vcs_info:*' actionformats ':(%s)%b|%a'
 
 
 PROMPT="[%n@%m:%d %T]$([ -n "$TMUX" ] && echo "[tmux:$(tmux display -p "#I:#P")] ")"
-PROMPT+="%1(v|%F{green}%1v%f|)"
+PROMPT+="%1(v|%1v%f|)"
 PROMPT+="
  %(?!(._.)/!(;_;%)?) "
 #RPROMPT="[%~]"

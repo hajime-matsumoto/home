@@ -13,26 +13,26 @@ command! Rv source $MYVIMRC " RELOAD vimrc
 " }}}
 
 " general {{{
-set nocompatible " disable compatible with vim
-set modeline " use mode-line
-set modelines=5 " mode-line efective lins are until 5
-set showmode " show current mode
-set showcmd " show current command
-set autoread " autoread when other process rewrites
-set wildmenu " place of menu
-set number " show line number
-set title "show title
+set nocompatible               " disable compatible with vim
+set modeline                   " use mode-line
+set modelines=5                " mode-line efective lins are until 5
+set showmode                   " show current mode
+set showcmd                    " show current command
+set autoread                   " autoread when other process rewrites
+set wildmenu                   " place of menu
+set number                     " show line number
+set title                      " show title
+set backspace=start,eol,indent " backspace to delete everything
 
-set swapfile " enable swapfile
+set swapfile       " enable swapfile
 set directory=/tmp " where swapfile store
-set backup " enable backup
+set backup         " enable backup
 set backupdir=/tmp " where backupfile store
-"set viminfo= " disable viminfo
 set viminfo='50,\"1000,n"~/.viminfo " recent 50files info, 1000registers store in ~/.viminfo
 
-set hlsearch " enable highlight when search words hit
+set hlsearch   " enable highlight when search words hit
 set ignorecase " ignore capital or not
-set smartcase " do not ignore capital when search words includs both
+set smartcase  " do not ignore capital when search words includs both
 
 " escx2 swip highlights
 nnoremap <ESC><ESC> :nohlsearch<CR><ESC> 
@@ -52,8 +52,8 @@ set smartindent
 set cindent
 
 " save tab to space
-set expandtab
-set smarttab
+set noexpandtab
+set nosmarttab
 
 " enable plugin indent
 filetype plugin indent on
@@ -163,7 +163,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 NeoBundle 'thinca/vim-quickrun' " {{{
 augroup QuickRunPHPUnit
     autocmd!
-    autocmd BufWinEnter,BufNewFile *test.php set filetype=php.unit
+    autocmd BufWinEnter,BufNewFile *Test.php set filetype=php.unit
 augroup END
 let g:quickrun_config = {}
 let g:quickrun_config['php.unit'] = {'command': 'phpunit'}
