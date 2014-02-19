@@ -27,3 +27,5 @@ src/*
 # for tmux
 !.tmux.conf
 
+# for stags
+!.ctags
