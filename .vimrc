@@ -233,6 +233,7 @@ if neobundle#is_installed('neocomplete')
 				\ 'default' : '',
 				\ 'vimshell' : $HOME.'/.vimshell_hist',
 				\ 'scheme' : $HOME.'/.gosh_completions',
+				\ 'php' : '~/src/dict/php.dict',
 				\ }
 
 	" Define keyword.
@@ -314,8 +315,8 @@ endif
 
 " }}}
 
-NeoBundle 'violetyk/neocomplete-php.vim' " {{{
-let g:neocomplete_php_locale = 'ja'
+"NeoBundle 'violetyk/neocomplete-php.vim' " {{{
+"let g:neocomplete_php_locale = 'ja'
 " :PhpMakeDict ja " only once
 " }}}
 
@@ -344,6 +345,18 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets, ~/.vim/snippets'
+" }}}
+
+NeoBundle 'szw/vim-tags' " {{{
+"au BufNewFile,BufRead *.php let g:vim_tags_project_tags_command = "ctags --languages=php -f ~/php.tags `pwd` 2>/dev/null &"
+" }}}
+
+NeoBundle 'tsukkee/unite-tag' " {{{
+autocmd BufEnter *
+\  if empty(&buftype) 
+\|	nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+\| endif
+
 " }}}
 
 " appearence {{{

@@ -8,6 +8,7 @@
 !/.ssh/config
 
 # for zsh
+!.login
 !.zshrc
 !.zshenv
 !.zsh/
