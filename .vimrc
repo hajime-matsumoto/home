@@ -389,3 +389,7 @@ NeoBundle 'jpo/vim-railscasts-theme'
 "colorscheme desert
 colorscheme railscasts
 " }}}
+
+
+NeoBundle 'Lokaltog/vim-powerline'
+
