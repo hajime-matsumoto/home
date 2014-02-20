@@ -1,3 +1,20 @@
 
 # GET REPOSITORY
 git clone https://github.com/yascentur/Ricty
+
+sudo apt-get install fontforge
+
+
+wget http://levien.com/type/myfonts/Inconsolata.otf
+
+wget -O migu-1m-2013617.zip "http://sourceforge.jp/frs/redir.php?m=jaist&f=%2Fmix-mplus-ipa%2F59022%2Fmigu-1m-20130617.zip"
+
+unzip migu-1m-*.zip
+
+migu-1m-2013617
+
+cd Ricty/
+./ricty_generator.sh ../Inconsolata.otf ../migu-1m-20130617/migu-1m-regular.ttf ../migu-1m-20130617/migu-1m-bold.ttf
+
+cp Ricty* /path/to/fonts
+
