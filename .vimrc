@@ -217,6 +217,7 @@ nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35
 
 NeoBundle 'Shougo/vimproc',{'build': {'unix': 'make -f make_unix.mak'}}
 NeoBundle 'Shougo/vimshell' " {{{
+nnoremap <silent> <Leader>sp :<C-u>VimShellPop<CR>
 "}}}
 
 NeoBundle has('lua') ? 'Shougo/neocomplete': 'Shougo/neocomplcache' " {{{

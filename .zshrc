@@ -130,7 +130,7 @@ source ~/.zsh/gitflow-completion.sh
 # alias
 #alias su='sudo -H -s'
 alias su='sudo -s' 
+alias vi=vim
 
 # rbenv
 eval "$(rbenv init -)"
-
