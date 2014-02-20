@@ -1,0 +1,30 @@
+# for win
+apt-cyg install gcc gcc4 libmpfr4
+
+#apt-cyg install git \
+#  make \
+#  patch \
+#  libncurses-devel \
+#  openssl-devel \
+#  readline \
+#  libsqlite3-devel \
+#  libxml2-devel \
+#  libxslt-devel
+
+#:MESSAGE:
+#Installing libncurses-devel
+#Package libncurses-devel not found or ambiguous name, exiting
+
+#:try-with
+#apt-cyg install libncursesw-devel
+apt-cyg install git \
+  make \
+  patch \
+  libncursesw-devel \
+  openssl-devel \
+  readline \
+  libsqlite3-devel \
+  libxml2-devel \
+  libxslt-devel
+
+

@@ -31,3 +31,9 @@ src/*
 
 # for stags
 !.ctags
+
+# for ruby
+!.rbenv
+!.rbenv/plugins
+!.rbenv/plugins/ruby-build
+

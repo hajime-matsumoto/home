@@ -172,6 +172,7 @@ let g:quickrun_config['php.unit'] = {'command': 'phpunit'}
 " }}}
 
 NeoBundle 'Shougo/unite.vim' " {{{
+NeoBundle 'Shougo/neomru.vim'
 nnoremap [unite] <Nop>
 nmap <Space>f [unite]
 
@@ -217,6 +218,7 @@ nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35
 
 NeoBundle 'Shougo/vimproc',{'build': {'unix': 'make -f make_unix.mak'}}
 NeoBundle 'Shougo/vimshell' " {{{
+nnoremap <silent> <Leader>sp :<C-u>VimShellPop<CR>
 "}}}
 
 NeoBundle has('lua') ? 'Shougo/neocomplete': 'Shougo/neocomplcache' " {{{
@@ -358,7 +360,50 @@ autocmd BufEnter *
 \| endif
 
 " }}}
-
+NeoBundle 'spolu/dwm.vim' " タイルマネージャ {{{
+nnoremap <c-j> <c-w>w
+nnoremap <c-k> <c-w>W
+nmap <m-r> <Plug>DWMRotateCounterclockwise
+nmap <m-t> <Plug>DWMRotateClockwise
+nmap <c-n> <Plug>DWMNew
+nmap <c-c> <Plug>DWMClose
+nmap <c-@> <Plug>DWMFocus
+nmap <c-Space> <Plug>DWMFocus
+nmap <c-l> <Plug>DWMGrowMaster
+nmap <c-h> <Plug>DWMShrinkMaster
+ 
+" Unite 設定
+noremap zp :Unite buffer_tab file_mru<CR>
+noremap zn :UniteWithBufferDir -buffer-name=files file file/new<CR>
+NeoBundle 'kannokanno/unite-dwm' " 拡張 {{{
+noremap zp :Unite buffer_tab file_mru<CR>
+noremap zn :UniteWithBufferDir -buffer-name=files file file/new<CR>
+noremap zd :Unite dwm<CR>
+ 
+autocmd FileType unite call s:unite_my_settings()
+ 
+function! s:unite_my_settings()
+    " 上下に分割して開く
+    nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
+    inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
+    " 左右に分割して開く
+    nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+    inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+    " タブで開く
+    nnoremap <silent> <buffer> <expr> <C-T> unite#do_action('tabopen')
+    inoremap <silent> <buffer> <expr> <C-T> unite#do_action('tabopen')
+    " vimfiler で開く
+    nnoremap <silent> <buffer> <expr> <C-O> unite#do_action('vimfiler')
+    inoremap <silent> <buffer> <expr> <C-O> unite#do_action('vimfiler')
+    " dwm.vim で開く
+    nnoremap <silent> <buffer> <expr> <C-N> unite#do_action('dwm_new')
+    inoremap <silent> <buffer> <expr> <C-N> unite#do_action('dwm_new')
+    " 終了
+    nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+    inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+endfunction
+" }}}
+" }}}
 " appearence {{{
 "NeoBundle 'ujihisa/unite-colorscheme'
 "NeoBundle 'ujihisa/unite-font'
