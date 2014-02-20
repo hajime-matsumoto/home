@@ -22,6 +22,7 @@
 !src
 src/*
 !src/dict
+!src/doc
 !src/README
 !src/neobundle
 
