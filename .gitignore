@@ -1,6 +1,7 @@
 # ignore all
 /*
 /.*
+!README.md
 
 #  in .ssh
 !/.ssh
