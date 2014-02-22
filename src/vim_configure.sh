@@ -1,5 +1,9 @@
 ./configure \
 		--with-features=huge \
+		--with-x \
+		--enable-gui=auto \
+		--enable-xim \
+		--enable-perlinterp \
 		--enable-multibyte \
 		--enable-rubyinterp \
 		--enable-pythoninterp \
