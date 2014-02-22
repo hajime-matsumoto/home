@@ -55,3 +55,4 @@ PROMPT='%(!,[ADMIN],[%n]) at %m %(?!(^_^)/!(T_T%)?) '
 #
 alias vi=vim
 alias vimrc="vim ~/.vimrc"
+alias vish="vim +VimShell"
