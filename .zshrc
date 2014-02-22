@@ -49,7 +49,8 @@ bindkey -e # key binding as emacs style
 #
 #
 PROMPT='%(!,[ADMIN],[%n]) at %m %(?!(^_^)/!(T_T%)?) '
-RPROMPT='[%~]'
+#RPROMPT='[%~]'
 #
 # alias
 #
+alias vi=vim
