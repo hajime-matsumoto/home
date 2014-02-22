@@ -283,6 +283,8 @@ if has('conceal')
 endif
 
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets, ~/.vim/snippets'
+
+nmap <Leader>se :<C-u>NeoSnippetEdit<CR>
 " }}}
 
 " neocomplete {{{
