@@ -209,6 +209,8 @@ nnoremap <silent> [vimshell]my :<C-u>VimShellInteractive mysql -u root -p<CR>
 
 nnoremap [unite] <Nop> " {{{
 nmap <Leader>u [unite]
+let g:unite_source_history_yank_enable=1
+
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]r :<C-u>UniteWithBufferDir -buffer-name=register register<CR>
@@ -216,6 +218,7 @@ nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
 nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
 nnoremap <silent> [unite]d :<C-u>Unite dwm<CR>
+nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
     " タブで開く

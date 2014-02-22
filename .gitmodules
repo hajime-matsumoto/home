@@ -4,3 +4,6 @@
 [submodule ".rbenv"]
 	path = .rbenv
 	url = git://github.com/sstephenson/rbenv.git
+[submodule "src/ClipboardTextListener"]
+	path = src/ClipboardTextListener
+	url = https://github.com/yoshikaw/ClipboardTextListener
