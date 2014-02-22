@@ -1,0 +1,14 @@
+./configure \
+		--with-features=huge \
+		--enable-multibyte \
+		--enable-rubyinterp \
+		--enable-pythoninterp \
+		--enable-python3interp \
+		--enable-luainterp \
+		--with-lua-prefix=/usr \
+		--enable-perlinterp \
+		--enable-tclinterp \
+		--enable-mzschemeinterp \
+		--enable-gpm \
+		--enable-cscope \
+		--enable-fontset 
