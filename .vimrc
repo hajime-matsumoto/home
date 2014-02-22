@@ -208,6 +208,13 @@ nnoremap <silent> [vimshell]my :<C-u>VimShellInteractive mysql -u root -p<CR>
 " }}}
 
 nnoremap [unite] <Nop> " {{{
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'tacroe/unite-mark'
+NeoBundle 'osyo-manga/unite-fold'
+NeoBundle 'taka84u9/unite-git'
+NeoBundle 'thinca/vim-unite-history'
+
 nmap <Leader>u [unite]
 let g:unite_source_history_yank_enable=1
 
@@ -219,6 +226,13 @@ nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
 nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
 nnoremap <silent> [unite]d :<C-u>Unite dwm<CR>
 nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
+nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
+nnoremap <silent> [unite]c :<C-u>Unite colorschame<CR>
+nnoremap <silent> [unite]r :<C-u>Unite mark<CR>
+nnoremap <silent> [unite]h :<C-u>Unite fold<CR>
+nnoremap <silent> [unite]g :<C-u>Unite git_cached<CR>
+nnoremap <silent> [unite]gm :<C-u>Unite git_modified<CR>
+nnoremap <silent> [unite]gu :<C-u>Unite git_unstaged<CR>
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
     " タブで開く
