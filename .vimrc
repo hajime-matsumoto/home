@@ -18,8 +18,8 @@ set viminfo='50,\"1000,n"~/.viminfo " recent 50files info, 1000registers store i
 
 set ignorecase " ignore capital or not
 set smartcase  " do not ignore capital when search words includs both
-set splitright
-set splitbelow
+"set splitright
+"set splitbelow
 set wrap
 set textwidth=0
 
@@ -149,7 +149,6 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc',{'build': {'unix': 'make -f make_unix.mak'}}
 NeoBundle 'Shougo/vimshell'
-NeoBundle has('lua') ? 'Shougo/neocomplete': 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/neosnippet' 
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -157,6 +156,27 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'spolu/dwm.vim'
 NeoBundle 'kannokanno/unite-dwm'
+" }}}
+
+" neocomple {{{
+function! s:meet_neocomplete_requirements()
+	return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
+endfunction
+
+if s:meet_neocomplete_requirements()
+	NeoBundle 'Shougo/neocomplete.vim'
+	NeoBundleFetch 'Shougo/neocomplcache.vim'
+else
+	NeoBundleFetch 'Shougo/neocomplete.vim'
+	NeoBundle 'Shougo/neocomplcache.vim'
+endif
+
+
+if s:meet_neocomplete_requirements()
+	" 新しく追加した neocomplete の設定
+else
+	" 今までの neocomplcache の設定
+endif
 " }}}
 
 " plugin setting {{{
@@ -176,11 +196,15 @@ nnoremap <silent> [vimfiler]i :<C-u>VimFilerBufferDir -split -simple -winwidth=3
 
 nnoremap [vimshell] <Nop>
 nmap <Leader>s [vimshell]
+let g:vimshell_interactive_update_time = 10
+let g:vimshell_prompt = $USERNAME."% "
+nnoremap <silent> [vimshell]s :<C-u>VimShell<CR>
 nnoremap <silent> [vimshell]p :<C-u>VimShellPop<CR>
 nnoremap <silent> [vimshell]b :<C-u>VimShellBufferDir -popup<CR>
 nnoremap <silent> [vimshell]t :<C-u>VimShellTab<CR>
 nnoremap <silent> [vimshell]rb :<C-u>VimShellInteractive irb<CR>
 nnoremap <silent> [vimshell]py :<C-u>VimShellInteractive python<CR>
+nnoremap <silent> [vimshell]ph :<C-u>VimShellInteractive php -a<CR>
 nnoremap <silent> [vimshell]my :<C-u>VimShellInteractive mysql -u root -p<CR>
 
 nnoremap [unite] <Nop>
@@ -219,6 +243,7 @@ nmap <c-Space> <Plug>DWMFocus
 nmap <c-l> <Plug>DWMGrowMaster
 nmap <c-h> <Plug>DWMShrinkMaster
 " }}} 
+
 "color scheme
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'nanotech/jellybeans.vim'
@@ -227,3 +252,7 @@ colorscheme jellybeans
 "colorscheme railscasts
 " use power line
 NeoBundle 'Lokaltog/vim-powerline'
+
+
+" testing...
+" NeoBundle 'ujihisa/vimshell-ssh'
