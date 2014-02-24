@@ -411,7 +411,7 @@ set background=dark
 "colorscheme molokai
 "colorscheme lucius
 "colorscheme zenburn
-colorscheme mkrn256
+colorscheme mrkn256
 
 " use power line
 NeoBundle 'Lokaltog/vim-powerline'
