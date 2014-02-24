@@ -105,7 +105,7 @@ noremap \ ,
 
 " Programming {{{
 set showmatch
-set foldmethod=syntax
+"set foldmethod=marker
 set grepprg=internal
 autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
@@ -391,8 +391,28 @@ autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'w0ng/vim-hybrid'
-colorscheme jellybeans
+NeoBundle 'altercation/vim-colors-solarized'
+
+NeoBundle 'croaker/mustang-vim'
+NeoBundle 'jeffreyiacono/vim-colors-wombat'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'vim-scripts/Lucius'
+NeoBundle 'vim-scripts/Zenburn'
+NeoBundle 'mrkn/mrkn256.vim'
+NeoBundle 'therubymug/vim-pyte'
+NeoBundle 'tomasr/molokai'
+"set background=light
+set background=dark
+"colorscheme jellybeans
+"colorscheme hybrid
+"colorscheme hybrid-light
 "colorscheme railscasts
+"colorscheme solarized
+"colorscheme molokai
+"colorscheme lucius
+"colorscheme zenburn
+colorscheme mkrn256
+
 " use power line
 NeoBundle 'Lokaltog/vim-powerline'
 
@@ -405,3 +425,5 @@ augroup filetypedetect
 	au BufRead,BufNewFile *.twig set filetype=htmljinja
 augroup END
 "}}}
+
+"
