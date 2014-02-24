@@ -87,6 +87,7 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 inoremap jj <ESC>
 
+
 set pastetoggle=<F2>
 nnoremap <Space>m :<C-u>marks
 nnoremap <Space>r :<C-u>register
@@ -99,8 +100,8 @@ nnoremap <C-l> <C-w>l
 nnoremap <ESC><ESC> :nohlsearch<CR><ESC> 
 
 nnoremap ; :
-let mapleader = ","
-noremap \ ,
+"let mapleader = ","
+"noremap \ ,
 " }}}
 
 " Programming {{{
@@ -142,8 +143,17 @@ NeoBundle 'h1mesuke/vim-alignta.git'
 NeoBundle 'tpope/vim-fugitive' 
 NeoBundle 'taglist.vim'
 NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'claco/jasmine.vim'
 
+" testing
+NeoBundle 'claco/jasmine.vim'
+NeoBundle 'osyo-manga/vim-gift'
+NeoBundle 'osyo-manga/vim-automatic'
+NeoBundle 'osyo-manga/unite-quickfix'
+NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'mattn/emmet-vim'
+"NeoBundle 'lunaru/vim-twig'
+"NeoBundle 'evidens/vim-twig'
+NeoBundle "basyura/TweetVim"
 
 " quick run
 NeoBundle 'thinca/vim-quickrun' 
@@ -152,7 +162,14 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/vimproc',{'build': {'unix': 'make -f make_unix.mak'}}
+NeoBundle 'Shougo/vimproc',{'build': 
+\	{
+\		'windows': 'make -f make_windows.mak',
+\		'cygwin': 'make -f make_cygwin.mak',
+\		'mac': 'make -f make_mac.mak',
+\		'unix': 'make -f make_unix.mak',
+\	}
+\}
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/neosnippet' 
@@ -187,6 +204,7 @@ endif
 if neobundle#is_installed('neocomplcache')
 	let g:neocomplcache#enable_at_startup=1
 endif
+
 
 nnoremap [vimfiler] <Nop> " {{{
 nmap <Leader>f [vimfiler]
@@ -253,6 +271,8 @@ endfunction
 " }}}
 
 " dwm {{{
+let g:dwm_master_pane_width=85
+
 nnoremap <c-j> <c-w>w
 nnoremap <c-k> <c-w>W
 nmap <m-r> <Plug>DWMRotateCounterclockwise
@@ -385,6 +405,29 @@ au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
 autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
 " }}}
 
+" quick run {{{
+let g:quickrun_config={
+\ "_": {
+\	"hook/close_unite_quickfix/enable_hook_loaded": 1,
+\	"hook/unite_quickfix/enable_failure": 1,
+\	"hook/close_quickfix/enable_exit": 1,
+\	"hook/close_buffer/enable_failure": 1,
+\	"hook/close_buffer/enable_empty_data": 1,
+\	"outputter" : "multi:buffer:quickfix",
+\	"hook/shabadoubi_touch_henshin/enable" : 1,
+\	"hook/shabadoubi_touch_henshin/wait" : 20,
+\	"outputter/buffer/split" : ":botright 8sp",
+\	"runner" : "vimproc",
+\	"runner/vimproc/updatetime" : 40
+\ }
+\}
+" }}}
+
+" automatic {{{
+" }}}
+"
+"
+
 " }}} 
 
 "color scheme
@@ -401,6 +444,7 @@ NeoBundle 'vim-scripts/Zenburn'
 NeoBundle 'mrkn/mrkn256.vim'
 NeoBundle 'therubymug/vim-pyte'
 NeoBundle 'tomasr/molokai'
+
 "set background=light
 set background=dark
 "colorscheme jellybeans
@@ -417,13 +461,63 @@ colorscheme mrkn256
 NeoBundle 'Lokaltog/vim-powerline'
 
 
-" testing...
-" NeoBundle 'ujihisa/vimshell-ssh'
-"
-"filetype {{{
+" filetype {{{
 augroup filetypedetect
-	au BufRead,BufNewFile *.twig set filetype=htmljinja
+"	au BufRead,BufNewFile *.twig set filetype=htmljinja
 augroup END
-"}}}
 
-"
+"autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
+"autocmd BufWritePost *.php silent make!<CR>:cwindow<CR>
+
+" php {{{
+augroup PHP
+	autocmd!
+	autocmd FileType php set makeprg=php\ -l\ %
+	autocmd FileType php set errorformat=%m\ in\ %f\ on\ line\ %l
+	" autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+augroup END
+" }}}
+" }}}
+
+" startup {{{
+let g:unite_source_alias_aliases = {
+\"startup_file_mru" : {
+\	"source" : "file_mru",
+\},
+\"startup_directory_mru" : {
+\	"source" : "directory_mru",
+\},
+\}
+
+call unite#custom_max_candidates("startup_file_mru", 5)
+call unite#custom_max_candidates("startup_directory_mru", 5)
+if !exists("g:unite_source_menu_menus")
+	let g:unite_source_menu_menus = {}
+endif
+let g:unite_source_menu_menus.startup = {
+\   "description" : "startup menu",
+\   "command_candidates" : [
+\       [ "vimrc",  "edit " . $MYVIMRC ],
+\       [ "vimshell",  "VimShell" ],
+\       [ "unite-file_mru", "Unite file_mru" ],
+\       [ "unite-directory_mru", "Unite directory_mru" ],
+\   ]
+\}
+
+command! UniteStartup
+\	Unite
+\	output:echo\ "====\ menu\ ====" menu:startup
+\	output:echo\ "\ "
+\	output:echo\ "====\ file\ mru\ ====" startup_file_mru
+\	output:echo\ "\ "
+\	output:echo\ "====\ directory\ mru\ ====" startup_directory_mru
+\	output:echo\ "\ "
+\	-hide-source-names
+\	-no-split
+\	-quick-match
+
+augroup startup
+	autocmd!
+	autocmd VimEnter * nested if @% == '' | UniteStartup 
+augroup END
+" }}}
