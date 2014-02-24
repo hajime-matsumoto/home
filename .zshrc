@@ -61,3 +61,10 @@ alias vizshrc="vim ~/.zshrc"
 alias ll="ls -l"
 alias la="ls -la"
 alias l="ls"
+
+SSHAGENT=$(which ssh-agent)
+SSHAGENTARGS="-s"
+if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
+	eval `$SSHAGENT $SSHAGENTARGS`
+	trap "kill $SSH_AUTH_PID" 0
+fi
