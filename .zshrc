@@ -52,6 +52,9 @@ export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 #PROMPT='%(!,[ADMIN],[%n]) at %m %(?!(^_^)/!(T_T%)?) '
 PROMPT='%(!,[ADMIN,[%n) at %m] %~'$'\n%(?!(^_^)/!(T_T%)?) '
 #RPROMPT='[%~]'
+
+# GIT
+source ~/src/git-flow-completion/git-flow-completion.zsh
 #
 # alias
 #
