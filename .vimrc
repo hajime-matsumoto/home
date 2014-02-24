@@ -141,6 +141,8 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'h1mesuke/vim-alignta.git' 
 NeoBundle 'tpope/vim-fugitive' 
 NeoBundle 'taglist.vim'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'claco/jasmine.vim'
 
 
 " quick run
@@ -215,7 +217,7 @@ NeoBundle 'osyo-manga/unite-fold'
 NeoBundle 'taka84u9/unite-git'
 NeoBundle 'thinca/vim-unite-history'
 
-nmap <Leader>u [unite]
+nmap <Leader>f [unite]
 let g:unite_source_history_yank_enable=1
 
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
@@ -378,6 +380,10 @@ else
 endif
 " }}}
 
+" coffee scriot {{{
+au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
+autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
+" }}}
 
 " }}} 
 
@@ -393,3 +399,9 @@ NeoBundle 'Lokaltog/vim-powerline'
 
 " testing...
 " NeoBundle 'ujihisa/vimshell-ssh'
+"
+"filetype {{{
+augroup filetypedetect
+	au BufRead,BufNewFile *.twig set filetype=htmljinja
+augroup END
+"}}}

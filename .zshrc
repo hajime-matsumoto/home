@@ -48,7 +48,8 @@ bindkey -e # key binding as emacs style
 # prompt
 #
 #
-PROMPT='%(!,[ADMIN],[%n]) at %m %(?!(^_^)/!(T_T%)?) '
+#PROMPT='%(!,[ADMIN],[%n]) at %m %(?!(^_^)/!(T_T%)?) '
+PROMPT='%(!,[ADMIN,[%n) at %m] %~'$'\n%(?!(^_^)/!(T_T%)?) '
 #RPROMPT='[%~]'
 #
 # alias
@@ -57,3 +58,6 @@ alias vi=vim
 alias virc="vim ~/.vimrc"
 alias vish="vim +VimShell"
 alias vizshrc="vim ~/.zshrc"
+alias ll="ls -l"
+alias la="ls -la"
+alias l="ls"
