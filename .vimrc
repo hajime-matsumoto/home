@@ -240,7 +240,7 @@ NeoBundle 'taka84u9/unite-git'
 NeoBundle 'thinca/vim-unite-history'
 
 nnoremap <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <C-b> :<C-u>Unite bookmark dwm directory_mru<CR>
+nnoremap <C-b> :<C-u>Unite bookmark dwm file_mru directory_mru<CR>
 nnoremap <C-d> :<C-u>Unite dwm outline fold <CR>
 nnoremap <C-y> :<C-u>Unite history/yank<CR>
 
