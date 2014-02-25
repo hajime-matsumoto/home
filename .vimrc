@@ -25,7 +25,7 @@ set textwidth=0
 
 
 " restore last edited position
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+" au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 set clipboard=unnamed,autoselect
 " }}}
@@ -155,6 +155,7 @@ NeoBundle 'mattn/emmet-vim'
 "NeoBundle 'lunaru/vim-twig'
 "NeoBundle 'evidens/vim-twig'
 NeoBundle "basyura/TweetVim"
+NeoBundle "basyura/twibill.vim"
 
 " quick run
 NeoBundle 'thinca/vim-quickrun' 
@@ -206,11 +207,12 @@ if neobundle#is_installed('neocomplcache')
 	let g:neocomplcache#enable_at_startup=1
 endif
 
-
-nnoremap [vimfiler] <Nop> " {{{
+" vimfiler " {{{
+nnoremap [vimfiler] <Nop>
 nmap <Leader>f [vimfiler]
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default= 0
+autocmd FileType vimfiler call unite#custom_default_action('directory','cd')
 nnoremap <silent> [vimfiler]i :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
 " }}}
 
@@ -228,7 +230,8 @@ nnoremap <silent> [vimshell]ph :<C-u>VimShellInteractive php -a<CR>
 nnoremap <silent> [vimshell]my :<C-u>VimShellInteractive mysql -u root -p<CR>
 " }}}
 
-nnoremap [unite] <Nop> " {{{
+" unite {{{
+nnoremap [unite] <Nop> 
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'tacroe/unite-mark'
@@ -237,11 +240,13 @@ NeoBundle 'taka84u9/unite-git'
 NeoBundle 'thinca/vim-unite-history'
 
 nnoremap <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <C-b> :<C-u>Unite bookmark dwm file_mru<CR>
-nnoremap <C-d> :<C-u>Unite dwm fold outline<CR>
+nnoremap <C-b> :<C-u>Unite bookmark dwm directory_mru<CR>
+nnoremap <C-d> :<C-u>Unite dwm outline fold <CR>
+nnoremap <C-y> :<C-u>Unite history/yank<CR>
 
 nmap <Leader>f [unite]
 let g:unite_source_history_yank_enable=1
+let g:unite_enable_start_insert=1
 
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
@@ -264,11 +269,11 @@ function! s:unite_my_settings()
     nnoremap <silent> <buffer> <expr> <C-T> unite#do_action('tabopen')
     inoremap <silent> <buffer> <expr> <C-T> unite#do_action('tabopen')
     " vimfiler で開く
-    nnoremap <silent> <buffer> <expr> <C-O> unite#do_action('vimfiler')
-    inoremap <silent> <buffer> <expr> <C-O> unite#do_action('vimfiler')
+    "nnoremap <silent> <buffer> <expr> <C-O> unite#do_action('vimfiler')
+    "inoremap <silent> <buffer> <expr> <C-O> unite#do_action('vimfiler')
     " dwm.vim で開く
-    nnoremap <silent> <buffer> <expr> <C-N> unite#do_action('dwm_new')
-    inoremap <silent> <buffer> <expr> <C-N> unite#do_action('dwm_new')
+    nnoremap <silent> <buffer> <expr> <C-O> unite#do_action('dwm_new')
+    inoremap <silent> <buffer> <expr> <C-O> unite#do_action('dwm_new')
     " 終了
     nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
     inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
@@ -276,7 +281,7 @@ endfunction
 " }}}
 
 " dwm {{{
-let g:dwm_master_pane_width=85
+let g:dwm_master_pane_width=75
 let g:dwm_map_keys=0
 
 nnoremap <c-j> <c-w>w
@@ -521,7 +526,6 @@ command! UniteStartup
 \	output:echo\ "\ "
 \	-hide-source-names
 \	-no-split
-\	-quick-match
 
 augroup startup
 	autocmd!
