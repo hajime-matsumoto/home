@@ -30,7 +30,8 @@ src/*
 
 # for tmux
 !.tmux.conf
-
+!.tmux-powerlinerc
+!src/tmux-powerline
 # for stags
 !.ctags
 

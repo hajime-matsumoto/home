@@ -236,6 +236,10 @@ NeoBundle 'osyo-manga/unite-fold'
 NeoBundle 'taka84u9/unite-git'
 NeoBundle 'thinca/vim-unite-history'
 
+nnoremap <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <C-b> :<C-u>Unite bookmark dwm file_mru<CR>
+nnoremap <C-d> :<C-u>Unite dwm fold outline<CR>
+
 nmap <Leader>f [unite]
 let g:unite_source_history_yank_enable=1
 
@@ -273,12 +277,13 @@ endfunction
 
 " dwm {{{
 let g:dwm_master_pane_width=85
+let g:dwm_map_keys=0
 
 nnoremap <c-j> <c-w>w
 nnoremap <c-k> <c-w>W
-nmap <m-r> <Plug>DWMRotateCounterclockwise
-nmap <m-t> <Plug>DWMRotateClockwise
-nmap <c-n> <Plug>DWMNew
+"nmap <m-r> <Plug>DWMRotateCounterclockwise
+"nmap <m-t> <Plug>DWMRotateClockwise
+"nmap <c-n> <Plug>DWMNew
 nmap <c-c> <Plug>DWMClose
 nmap <c-@> <Plug>DWMFocus
 nmap <c-Space> <Plug>DWMFocus
@@ -460,6 +465,7 @@ colorscheme mrkn256
 
 " use power line
 NeoBundle 'Lokaltog/vim-powerline'
+"let g:Powerline_symbols ='fancy'
 
 
 " filetype {{{
