@@ -65,8 +65,8 @@ setopt transient_rprompt
 PROMPT='%F{42}%(!,[ADMIN,[%n) at %m]%f %F{118}%~%f'$'\n%(?!%F{193}(^_^)/%f!(T_T%)?) '
 #RPROMPT='[%~]'
 
-# GIT
-source ~/src/git-flow-completion/git-flow-completion.zsh
+# Competions
+fpath=(~/src/zsh-completions/src $fpath)
 #
 # alias
 #

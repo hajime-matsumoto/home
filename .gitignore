@@ -27,6 +27,7 @@ src/*
 !src/doc
 !src/README
 !src/neobundle
+!src/zsh-completions
 
 # for tmux
 !.tmux.conf
