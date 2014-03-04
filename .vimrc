@@ -456,6 +456,10 @@ NeoBundle 'mrkn/mrkn256.vim'
 NeoBundle 'therubymug/vim-pyte'
 NeoBundle 'tomasr/molokai'
 
+NeoBundle 'sudo.vim'
+NeoBundle 'nginx.vim'
+au BufRead,BufNewFile nginx.conf set ft=nginx
+
 "set background=light
 set background=dark
 "colorscheme jellybeans
