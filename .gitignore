@@ -7,7 +7,7 @@
 #  in .ssh
 !/.ssh
 /.ssh/*
-!/.ssh/config
+!/.ssh/config.sample
 
 # for zsh
 !.login
@@ -39,4 +39,3 @@ src/*
 !.rbenv
 !.rbenv/plugins
 !.rbenv/plugins/ruby-build
-
