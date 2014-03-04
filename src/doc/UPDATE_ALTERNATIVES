@@ -1,0 +1,16 @@
+ 1250* exit
+ 1251  visudo
+ 1252  sudo visudo
+ 1253  echo $EDITOR
+ 1255  vi /etc/alternatives/editor
+ 1259  sudo sudo update-alternatives --set editor /usr/local/bin/vim
+ 1261  man update-alternatives
+ 1262  sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/vim
+ 1263  sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/vim 1
+ 1264  sudo update-alternatives --set editor /usr/local/bin/vim
+ 1265  sudo update-alternatives editor
+ 1266  sudo update-alternatives --set editor
+ 1267  sudo update-alternatives --config editor
+ 1268  ls
+ 1269  history
+ 1270  history ~/src/doc/UPDATE_ALTERNATIVES

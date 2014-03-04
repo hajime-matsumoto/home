@@ -1,0 +1,4 @@
+#  Cygwin X
+apt-cyg install \
+		xorg-server \
+		xinit 

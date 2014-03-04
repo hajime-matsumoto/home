@@ -36,3 +36,7 @@ vimshell% ./configure --enable-multibyte --enable-rubyinterp --enable-pythoninte
         --enable-cscope \
         --enable-fontset \
         --enable-fail-if-missing
+
+
+php -r '$f=get_defined_functions();echo join("\n",$f["internal"]);'|sort > ~/src/dict/php.dict
+

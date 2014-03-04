@@ -1,13 +1,16 @@
 # ignore all
 /*
 /.*
+!README.md
+!bin
 
 #  in .ssh
 !/.ssh
 /.ssh/*
-!/.ssh/config
+!/.ssh/config.sample
 
 # for zsh
+!.login
 !.zshrc
 !.zshenv
 !.zsh/
@@ -20,7 +23,19 @@
 
 !src
 src/*
+!src/dict
+!src/doc
 !src/README
 !src/neobundle
 
+# for tmux
+!.tmux.conf
+!.tmux-powerlinerc
+!src/tmux-powerline
+# for stags
+!.ctags
 
+# for ruby
+!.rbenv
+!.rbenv/plugins
+!.rbenv/plugins/ruby-build

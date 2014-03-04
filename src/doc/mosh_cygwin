@@ -1,0 +1,16 @@
+wget http://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz && \
+tar xvvf protobuf-2.4.1.tar.gz && \
+cd protobuf-2.4.1 && \
+./configure && \
+make &&\
+make install
+
+wget https://github.com/downloads/keithw/mosh/mosh-1.2.2.tar.gz &&\
+tar zxvf mosh-1.2.2.tar.gz &&\
+cd mosh-1.2.2 &&\
+./configure CPPFLAGS="-I/usr/include/ncurses" PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/ &&\
+make &&\
+make install
+
+perl -MCPAN -e shell
+cpan> install IO::Pty

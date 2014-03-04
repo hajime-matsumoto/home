@@ -1,0 +1,7 @@
+
+apt-cyg find php -m ftp://ftp.cygwinports.org/pub/cygwinports
+apt-cyg install php 
+apt-cyg install mysql mysqld
+/usr/sher/mysqld/mysqld.server start
+
+:VimShellInteractive mysql -uroot -p
