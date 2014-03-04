@@ -33,7 +33,8 @@ set clipboard=unnamed,autoselect
 " display {{{
 set fileencodings=utf-8,euc-jp,iso-2022-jp,cp932
 
-set hlsearch   " enable highlight when search words hit
+"set hlsearch   " enable highlight when search words hit
+set nohlsearch   
 set ruler
 set title
 set modeline                   " use mode-line
@@ -146,12 +147,12 @@ NeoBundle 'taglist.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 
 " testing
-NeoBundle 'claco/jasmine.vim'
-NeoBundle 'osyo-manga/vim-gift'
-NeoBundle 'osyo-manga/vim-automatic'
+"NeoBundle 'claco/jasmine.vim'
+"NeoBundle 'osyo-manga/vim-gift'
+"NeoBundle 'osyo-manga/vim-automatic'
 NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'osyo-manga/shabadou.vim'
-NeoBundle 'mattn/emmet-vim'
+"NeoBundle 'mattn/emmet-vim'
 "NeoBundle 'lunaru/vim-twig'
 "NeoBundle 'evidens/vim-twig'
 NeoBundle "basyura/TweetVim"
@@ -240,7 +241,7 @@ NeoBundle 'taka84u9/unite-git'
 NeoBundle 'thinca/vim-unite-history'
 
 nnoremap <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <C-b> :<C-u>Unite bookmark dwm file_mru directory_mru<CR>
+nnoremap <C-b> :<C-u>Unite buffer file dwm file_mru directory_mru<CR>
 nnoremap <C-d> :<C-u>Unite dwm outline fold <CR>
 nnoremap <C-y> :<C-u>Unite history/yank<CR>
 
@@ -281,7 +282,7 @@ endfunction
 " }}}
 
 " dwm {{{
-let g:dwm_master_pane_width=75
+" let g:dwm_master_pane_width=80
 let g:dwm_map_keys=0
 
 nnoremap <c-j> <c-w>w
@@ -458,7 +459,7 @@ NeoBundle 'tomasr/molokai'
 
 "set background=light
 set background=dark
-"colorscheme jellybeans
+colorscheme jellybeans
 "colorscheme hybrid
 "colorscheme hybrid-light
 "colorscheme railscasts
@@ -466,7 +467,7 @@ set background=dark
 "colorscheme molokai
 "colorscheme lucius
 "colorscheme zenburn
-colorscheme mrkn256
+"colorscheme mrkn256
 
 " use power line
 NeoBundle 'Lokaltog/vim-powerline'
@@ -493,16 +494,21 @@ augroup END
 
 " startup {{{
 let g:unite_source_alias_aliases = {
+\"startup_file" : {
+\	"source" : "file",
+\},
 \"startup_file_mru" : {
 \	"source" : "file_mru",
 \},
 \"startup_directory_mru" : {
 \	"source" : "directory_mru",
-\},
+\}
 \}
 
+call unite#custom_max_candidates("startup_file", 10)
 call unite#custom_max_candidates("startup_file_mru", 5)
 call unite#custom_max_candidates("startup_directory_mru", 5)
+
 if !exists("g:unite_source_menu_menus")
 	let g:unite_source_menu_menus = {}
 endif
@@ -511,6 +517,7 @@ let g:unite_source_menu_menus.startup = {
 \   "command_candidates" : [
 \       [ "vimrc",  "edit " . $MYVIMRC ],
 \       [ "vimshell",  "VimShell" ],
+\       [ "unite-file", "Unite file" ],
 \       [ "unite-file_mru", "Unite file_mru" ],
 \       [ "unite-directory_mru", "Unite directory_mru" ],
 \   ]
@@ -519,6 +526,8 @@ let g:unite_source_menu_menus.startup = {
 command! UniteStartup
 \	Unite
 \	output:echo\ "====\ menu\ ====" menu:startup
+\	output:echo\ "\ "
+\	output:echo\ "====\ file\ ====" startup_file
 \	output:echo\ "\ "
 \	output:echo\ "====\ file\ mru\ ====" startup_file_mru
 \	output:echo\ "\ "

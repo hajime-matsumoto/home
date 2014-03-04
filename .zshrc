@@ -88,3 +88,9 @@ if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
 fi
 
 PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+if [ -e ~/.zshrc.local ]
+then
+	source ~/.zshrc.local
+fi
+
